@@ -1,4 +1,4 @@
-# MDD-CoD: Personalized Medication for Chronic Diseases via a Multimodal Data-Driven Chain-of-Decisions
+# MDD-CoD: Personalized Medication for Chronic Diseases using Multimodal Data-Driven Chain-of-Decisions
 <div style="width: 100%; overflow: hidden; margin: 20px 0;">
   <div style="width: 49%; float: left; text-align: center;">
     <img src="figure/figure1.png" style="width: 100%;" alt="Method Flowchart">
