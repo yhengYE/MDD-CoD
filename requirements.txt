@@ -1,0 +1,11 @@
+einops==0.8.1
+matplotlib==3.10.3
+networkx==3.3
+pandas==2.3.0
+scikit_learn==1.7.0
+torch==1.13.1+cu116
+torch_geometric==2.6.1
+tqdm==4.65.0
+transformers==4.40.0
+utils==1.0.2
+numpy==1.25.2
