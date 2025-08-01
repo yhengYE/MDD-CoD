@@ -1,7 +1,7 @@
 # MDD-CoD: Personalized Medication for Chronic Diseases using Multimodal Data-Driven Chain-of-Decisions
 <div style="width: 100%; overflow: hidden; margin: 20px 0;">
   <div style="width: 49%; float: left; text-align: center;">
-    <img src="figure/figure1.png" style="width: 100%;" alt="Method Flowchart">
+    <img src="fig/figure1.png" style="width: 100%;" alt="Method Flowchart">
     <p style="margin-top: 10px; font-weight: bold;">Figure 1. MDD-CoD Method Flowchart</p>
   </div>
   
@@ -132,7 +132,7 @@ python PKEdgeConstructor.py
 
 # MDD-CoD  Training Guide
 <div style="width: 49%; float: right; text-align: center;">
-  <img src="figure/MDD-CoD.png" style="width: 100%;" alt="Model Architecture">
+  <img src="fig/figure5.png" style="width: 100%;" alt="Model Architecture">
   <p style="margin-top: 10px; font-weight: bold;">Figure 2. MDD-CoD Model Architecture</p>
 </div>
   
