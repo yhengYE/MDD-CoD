@@ -131,17 +131,21 @@ from torch_geometric.nn import TransformerConv, global_mean_pool
 class GnnDrug(nn.Module):
     def __init__(self, input_dim, hidden_dim, heads=2, dropout_rate=0.4):
         super(GnnDrug, self).__init__()
-        self.conv1 = TransformerConv(input_dim, hidden_dim, heads=heads, dropout=dropout_rate, concat=True)
-        self.conv2 = TransformerConv(hidden_dim * heads, hidden_dim, heads=heads, dropout=dropout_rate, concat=False)
+        self.conv1 = TransformerConv(input_dim, hidden_dim, heads=heads, 
+                                     dropout=dropout_rate, concat=True, edge_dim=1)
+        self.conv2 = TransformerConv(hidden_dim * heads, hidden_dim, heads=heads, 
+                                     dropout=dropout_rate, concat=False, edge_dim=1)
 
     def forward(self, x, edge_index, batch, edge_attr=None, **kwargs):
+        if edge_attr is not None and edge_attr.dim() == 1:
+            edge_attr = edge_attr.view(-1, 1)
 
         x = self.conv1(x, edge_index, edge_attr=edge_attr)
         x = F.relu(x)
         x = F.dropout(x, p=0.1, training=self.training)
-
+        
         x = self.conv2(x, edge_index, edge_attr=edge_attr)
-
+        
         aggregated_features = global_mean_pool(x, batch)
         return aggregated_features
 
@@ -339,4 +343,5 @@ class tensor(nn.Module):
         y_2 = post_fusion_y_3
 
         return y_2
+
 
