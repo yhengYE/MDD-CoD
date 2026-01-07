@@ -360,7 +360,7 @@ def run_epoch(dataset, gnn_model, mlp_model_for_prediction, vae, optimizer, loss
         optimizer.zero_grad()
 
         with torch.set_grad_enabled(train):
-            dual_features = gnn_model(batch.x, batch.edge_index, batch.batch)
+            dual_features = gnn_model(batch.x, batch.edge_index, batch.batch, edge_attr=batch.edge_attr)
             reconstructed_data, mu, std = vae(dual_features)
             predicted_scores = mlp_model_for_prediction(reconstructed_data)
 
@@ -507,3 +507,4 @@ def main(df_features, df_patients, num_epochs=30, batch_size=32):
 if __name__ == "__main__":
     set_seed(2014)
     main(df_features, df_patients, num_epochs=1000, batch_size=64)
+
